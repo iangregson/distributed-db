@@ -1,5 +1,6 @@
 use std::collections::HashMap;
 
+#[derive(Default)]
 pub struct KvStore {
   map: HashMap<String, String>
 }
@@ -15,17 +16,17 @@ impl KvStore {
   ///
   /// If the key exists, the previous value is overwritten
   pub fn set(&mut self, key: String, value: String) {
-    panic!("unimplemented")
+    self.map.insert(key, value);
   }
   /// Gets the string value of the given string key
   ///
   /// If the key does not exist, None is returned
   pub fn get(&self, key: String) -> Option<String> {
-    panic!("unimplemented")
+    self.map.get(&key).cloned()
   }
   /// Removes a given key from the store
   pub fn remove(&mut self, key: String) {
-    panic!("unimplemented")
+    self.map.remove(&key);
   }
 }
 
